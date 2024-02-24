@@ -19,7 +19,9 @@ app.use(helmet())
 app.use(xss())
 
 app.use((req, res, next) => {
-    res.set('Cache-Control', 'public, max-age=3600');
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
     next();
 });
 
