@@ -18,6 +18,12 @@ app.use(cors({ origin: "*" }))
 app.use(helmet())
 app.use(xss())
 
+app.use((req, res, next) => {
+    res.set('Cache-Control', 'public, max-age=3600');
+    next();
+});
+
+
 app.use('/api/v1/heros', hero)
 
 app.use(errorHandeller)
