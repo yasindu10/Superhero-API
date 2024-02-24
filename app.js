@@ -4,8 +4,8 @@ require('express-async-errors')
 const express = require('express')
 const app = express()
 
-const errorHandeller = require('./middlewares/error-handeller')
-const notFound = require('./middlewares/route-not-found')
+const errorHandeller = require('./middlewares/errorHandeller.js')
+const notFound = require('./middlewares/routeNotFound.js')
 const connectDb = require('./db/connectDb')
 
 const helmet = require('helmet')
