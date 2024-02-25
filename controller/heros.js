@@ -154,7 +154,7 @@ const getAllHeros = async (req, res) => {
     }
 
     const pages = Number(req.query.page) || 1;
-    const limit = Number(req.query.limit) || 50;
+    const limit = Number(req.query.limit) || 40;
 
     const heros = await taks
         .select('-_id')
