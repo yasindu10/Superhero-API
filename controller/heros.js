@@ -153,7 +153,14 @@ const getAllHeros = async (req, res) => {
         taks = taks.select(fieldItems)
     }
 
-    const heros = await taks.select('-_id')
+    const pages = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 50;
+
+    const heros = await taks
+        .select('-_id')
+        .skip((pages - 1) * limit)
+        .limit(limit);
+
     res.status(200).json({ heros })
 }
 
