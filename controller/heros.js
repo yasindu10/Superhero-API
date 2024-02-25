@@ -168,7 +168,7 @@ const getSingleHero = async (req, res) => {
 }
 
 const searchHero = async (req, res) => {
-    const searchResult = req.query.search
+    const searchResult = req.query.name
     const results = await Hero.find({
         'data.name': {
             '$regex': searchResult,
