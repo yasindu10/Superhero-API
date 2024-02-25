@@ -153,13 +153,13 @@ const getAllHeros = async (req, res) => {
         taks = taks.select(fieldItems)
     }
 
-    const heros = await taks
+    const heros = await taks.select('-_id')
     res.status(200).json({ heros })
 }
 
 const getSingleHero = async (req, res) => {
     const id = req.params.id
-    const hero = await Hero.findOne({ "heroId": Number(id) })
+    const hero = await Hero.findOne({ "heroId": Number(id) }).select('-_id')
 
     if (!hero)
         throw new CustomError(200, `No Hero with id ${id}`)
@@ -174,14 +174,14 @@ const searchHero = async (req, res) => {
             '$regex': searchResult,
             '$options': 'i'
         }
-    })
+    }).select('-_id')
 
     res.status(200).json({ hero: results })
 }
 
 const getRandomHero = async (req, res) => {
     const randomNumber = Math.floor(Math.random() * 730)
-    const hero = await Hero.findOne({ "heroId": randomNumber })
+    const hero = await Hero.findOne({ "heroId": randomNumber }).select('-_id')
     res.status(200).json({ hero })
 }
 
