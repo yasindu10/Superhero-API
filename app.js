@@ -25,7 +25,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
 app.use('/api/v1/heros', hero)
 
 app.use(errorHandeller)
@@ -38,5 +37,4 @@ const start = async () => {
         console.log(`server is listening to port ${port}`)
     })
 }
-
 start()
