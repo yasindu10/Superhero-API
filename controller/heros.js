@@ -31,7 +31,6 @@ const getAllHeros = async (req, res) => {
         ];
 
         const regEx = /\b(<|>|>=|=|<|<=)\b/g;
-
         numerics.split(',').forEach((e) => {
             const filteredValue = e.replace(regEx, (match) => `-${operatorMap[match]}-`)
             const [field, simble, value] = filteredValue.split('-')

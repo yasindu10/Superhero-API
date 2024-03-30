@@ -1,4 +1,3 @@
-
 const express = require('express')
 const router = express.Router()
 
@@ -8,7 +7,6 @@ const {
     getSingleHero,
     searchHero
 } = require('../controller/heros')
-
 
 router.get('/', getAllHeros)
 router.get('/id/:id', getSingleHero)
